@@ -1,0 +1,102 @@
+#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+
+#include&lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+
+struct library
+{
+char bk_name[30];
+char author[30];
+int pages;
+float price;
+};
+
+int main()
+{
+struct library l[100];
+char ar_nm[30],bk_nm[30];
+int i,j, keepcount;
+i=j=keepcount = 0;
+
+while(j!=6)
+{
+printf(&quot;\n\n1. Add book information\n2. Display book
+information\n&quot;);
+
+printf(&quot;3. List all books of given author\n&quot;);
+printf(&quot;4. List the title of specified book\n&quot;);
+printf(&quot;5. List the count of books in the library\n&quot;);
+printf(&quot;6. Exit&quot;);
+
+printf (&quot;\n\nEnter one of the above : &quot;);
+scanf(&quot;%d&quot;,&amp;j);
+
+switch (j)
+{
+/* Add book */
+case 1:
+
+printf (&quot;Enter book name = &quot;);
+scanf (&quot;%s&quot;,l[i].bk_name);
+
+printf (&quot;Enter author name = &quot;);
+scanf (&quot;%s&quot;,l[i].author);
+
+printf (&quot;Enter pages = &quot;);
+scanf (&quot;%d&quot;,&amp;l[i].pages);
+
+printf (&quot;Enter price = &quot;);
+scanf (&quot;%f&quot;,&amp;l[i].price);
+keepcount++;
+
+break;
+case 2:
+printf(&quot;you have entered the following information\n&quot;);
+for(i=0; i&lt;keepcount; i++)
+{
+printf (&quot;book name = %s&quot;,l[i].bk_name);
+
+printf (&quot;\t author name = %s&quot;,l[i].author);
+
+printf (&quot;\t pages = %d&quot;,l[i].pages);
+
+printf (&quot;\t price = %f&quot;,l[i].price);
+}
+break;
+
+case 3:
+printf (&quot;Enter author name : &quot;);
+scanf (&quot;%s&quot;,ar_nm);
+
+for (i=0; i&lt;keepcount; i++)
+{
+if (strcmp(ar_nm, l[i].author) == 0)
+printf (&quot;%s %s %d
+%f&quot;,l[i].bk_name,l[i].author,l[i].pages,l[i].price);
+}
+break;
+
+case 4:
+printf (&quot;Enter book name : &quot;);
+scanf (&quot;%s&quot;,bk_nm);
+for (i=0; i&lt;keepcount; i++)
+{
+if (strcmp(bk_nm, l[i].bk_name) == 0)
+printf (&quot;%s \t %s \t %d \t
+%f&quot;,l[i].bk_name,l[i].author,l[i].pages,l[i].price);
+}
+break;
+
+case 5:
+printf(&quot;\n No of books in library : %d&quot;, keepcount);
+break;
+
+case 6:
+exit (0);
+
+}
+}
+return 0;
+
+}
